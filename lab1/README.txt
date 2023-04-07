@@ -1,0 +1,1 @@
+Laboratório 1 de comp conc, segue relatório em pdf e código lab1.c
