@@ -16,7 +16,7 @@ void init_array() {
 }
 
 void *print_message(void *thread_id) {
-    int thread_idbool = *((int*) thread_id);
+    
     if(!(thread_id)){ // se for a thread 0 
         for (int i = 0; i < array_size/2; i++) {
             array[i] = 2 * array[i];
@@ -34,8 +34,8 @@ int main()
     init_array(); // começa o array com valores de 0 a array_size-1
     pthread_t threads[numero_de_threads]; 
 
-    for (int i = 0; i < numero_de_threads; i++) {
-        pthread_create(&threads[i], NULL, print_message, &i);
+    for (long i = 0; i < numero_de_threads; i++) {
+        pthread_create(&threads[i], NULL, print_message, (void *) i);
     }
 
     for (int i = 0; i < numero_de_threads; i++) {
