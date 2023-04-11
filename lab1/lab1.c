@@ -9,8 +9,7 @@ int array[array_size];
 void init_array() {
     for (int i = 0; i < array_size; i++) {
         array[i] = i;
-    }   
-    printf("\n");
+    }
 }
 
 void *print_message(void *thread_id) {
