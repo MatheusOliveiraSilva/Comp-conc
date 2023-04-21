@@ -58,13 +58,15 @@ class main {
             threads[i].start();
         }
 
-        
         //--PASSO 4: esperar pelo termino de todas as threads
         for (int i=0; i<threads.length; i++) {
             try { threads[i].join(); } 
             catch (InterruptedException e) { return; }
         }
 
+        //-- Peguei um valor de Pi na internet e calculei também de forma sequencial, para verificar
+        //-- se o erro é maior que 8 casas decimais. E não foi o caso pelo menos na minha máquina.
+        //-- para melhor desempenho do código, comentar a parte do erro e lá encima o calculo sequencial.
         double erro1 = Math.abs(3.14159265358979323846 - 4*pi_conc);
         double erro2 = Math.abs(4*pi_seq - 4*pi_conc);
 
