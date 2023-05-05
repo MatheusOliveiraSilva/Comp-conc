@@ -1,0 +1,42 @@
+
+Atividade 1 -
+
+1- ok
+2- Sim, era esperado que não necessariamente seria feito na ordem que está na main ( parte sequencial ) de se criar primeiro B e dps as duas
+threads A. E a lógica de aplicacao de controle das threads está correto. Nenhuma vez B foi liberado antes de inicializar 2 threads A.
+3- Não vai finalizar nunca, o valor de 1 nunca vai ser atribuido a x. 
+4- Apenas um "BYE" será impresso, precisamos usar o broadcast provavelmente para que ambos sejam liberados.
+5- feito, broadcast ajuda.
+
+
+Atividade 2 - 
+
+1- ok
+2- Foi esperado, devido a randomicidade, tem vezes que a Thread A só printa BYE porque não foi bloqueada.
+A lógica foi atendida sim.
+
+Atividade 3 - 
+
+1- ok
+2- sim, sempre foi o esperado
+3- podemos até substituir, mas pode gerar inconsistências, o while é bom quando não temos certeza se o nosso
+estado foi mudado ou não. e nesse caso pode acontecer de quando liberarmos o signal, x pode não ser mais um
+multiplo de 10, e nesse caso teremos um resultado não esperado.
+4- Não, em uma vez recebi o output:
+
+convidado@ANCHIETA27:~/Área de Trabalho/lab5$ ./printX 
+A: Comecei: thread 1
+A: Comecei: thread 2
+A: thread 1, x = 10, encontrou padrao 
+B: Comecei: thread 3
+A: thread 1, x = 20, encontrou padrao 
+B: thread 3 x = 21, vai se bloquear...
+A: thread 2, x = 30, encontrou padrao 
+B: thread 3, sinal recebido e mutex realocado. x = 34
+X=34
+A: thread 2, x = 40, encontrou padrao 
+FIM.
+
+onde a thread 2 mandou um signal, retomamos a atividade da thread 3 mas como ela não checou novamente o valor,
+entre uma acao e outra, fomos de 30 a 34 e ela imprimiu o 34.
+
