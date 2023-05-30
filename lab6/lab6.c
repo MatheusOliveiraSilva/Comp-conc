@@ -90,10 +90,10 @@ int main(int argc, char *argv[]) {
   int *id[NTHREADS]; 
 
   //inicia os semaforo usados para exclusão mútua e sincronização condicional
-  sem_init(&mutexProdutor, 0, 1); //semaforo binario que garante exclusao mutua para os produtores
-  sem_init(&mutexConsumidor, 0, 1); //semaforo binario que garante exclusao mutua para os consumidores
-  sem_init(&slotCheio, 0, 0); //semaforo contador que indica o numero de slots cheios
-  sem_init(&slotVazio, 0, 1); //semaforo binario que indica quando todos os slots estao vazios
+  sem_init(&mutexProdutor, 0, 1); 
+  sem_init(&mutexConsumidor, 0, 1); 
+  sem_init(&slotCheio, 0, 0); 
+  sem_init(&slotVazio, 0, 1); 
 
   //inicializa os ids das threads
   for (int t=0; t<NTHREADS; t++) {
